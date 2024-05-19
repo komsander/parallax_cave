@@ -1,0 +1,201 @@
+/* font-family: "Prompt", sans-serif;
+font-family: "Gravitas One", serif;
+ */
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  font-family: "Prompt", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.menu {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+.menu__list {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding-top: 60px;
+  align-items: center;
+}
+.menu__link {
+  color: #fff;
+  font-size: 16px;
+}
+
+.top__text {
+  font-family: "Gravitas One", serif;
+  position: relative;
+  z-index: 1;
+
+  animation-name: text;
+  animation-timing-function: linear;
+  animation-timeline: scroll();
+  animation-range: 150vh 300vh;
+  animation-fill-mode: both;
+
+  opacity: 0;
+}
+@keyframes text {
+  to {
+    opacity: 1;
+  }
+}
+.top__title {
+  font-family: "Gravitas One", serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 135px;
+}
+.top__subtitle {
+  text-align: center;
+}
+
+
+.top__layer {
+  /* object-fit: contain; */
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+
+  background-position: center 15%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* @supports - для работы в браузерах, которые поддерживают эти функции */
+@supports (animation-timeline: scroll()){
+  .top {
+  height: 500vh;
+}
+.top__layer{
+  animation-timing-function: linear;
+  animation-timeline: scroll();
+  /* animation-duration: 5s; */
+  animation-fill-mode: both;
+  animation-range: 0 500vh;
+}
+}
+
+
+
+.top__layer_5 {
+  animation-name: top-layer-5;
+}
+@keyframes top-layer-5 {
+  to {
+    scale: 1.15;
+  }
+}
+
+.top__layer_4 {
+  animation-name: top-layer-4;
+}
+@keyframes top-layer-4 {
+  to {
+    scale: 1.35;
+  }
+}
+.top__layer_3 {
+  animation-name: top-layer-3;
+}
+@keyframes top-layer-3 {
+  to {
+    scale: 1.5;
+  }
+}
+.top__layer_2 {
+  animation-name: top-layer-2;
+}
+@keyframes top-layer-2 {
+  to {
+    scale: 1.8;
+  }
+}
+.top__layer_1 {
+  animation-name: top-layer-1;
+}
+@keyframes top-layer-1 {
+  to {
+    scale: 4;
+  }
+}
+.arrows-box {
+  border: 1px solid #fff;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+}
+.arrows {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  margin: 20px auto 0;
+}
+
+.arrows::after,
+.arrows::before {
+  content: "";
+  position: absolute;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  width: 100%;
+  height: 100%;
+  /* rotate: -45deg;
+  bottom: -50%; */
+  animation: arrow 3s linear infinite;
+}
+.arrows::after {
+  animation: arrow 3s linear infinite -1.5s;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    transform: translate(0, -10px) rotate(-45deg);
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, 0px) rotate(-45deg);
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 10px) rotate(-45deg);
+  }
+}
